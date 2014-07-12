@@ -28,6 +28,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 gem 'devise'
 gem 'faker'
 gem 'figaro'
+gem 'pundit'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
