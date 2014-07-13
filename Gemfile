@@ -29,6 +29,7 @@ gem 'devise'
 gem 'faker'
 gem 'figaro'
 gem 'pundit'
+gem 'redcarpet'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
