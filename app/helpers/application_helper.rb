@@ -8,3 +8,4 @@ module ApplicationHelper
       'has-error'
     end
   end
+end
