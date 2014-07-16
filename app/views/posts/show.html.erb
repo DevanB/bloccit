@@ -9,7 +9,11 @@
     <p><%= markdown @post.body %></p>
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
     <%= render @comments %>
-    <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% if policy(@comment).create? %>
+      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+    <% else %>
+      <small>You must sign in to comment on this post.</small>
+    <% end %>
   </div>
 </div>
 <div class="col-md-4">
