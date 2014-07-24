@@ -8,7 +8,7 @@
     </small>
     <p><%= @post.markdown_body %></p>
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
-    <%= render @post.comments %>
+    <%= render partial: 'comments/comment', collection: @post.comments %>
     <% if policy(@comment).create? %>
       <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
     <% else %>
