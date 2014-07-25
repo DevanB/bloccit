@@ -17,18 +17,16 @@ describe Topic do
     describe "private" do
       it "returns a relation of all private topics" do
         expect(Topic.private).to eq([@private_topic])
-        expect(Topic.private).to_not eq([@public_topic])
       end
     end
 
     describe "visible_to(user)" do
-      it "returns all specs if the user is present" do
-        user = true
-        expect(Topic.visible_to(user).count).to eq(Topic.all.count)
+      it "returns all topics if the user is present" do
+        expect(Topic.visible_to(true).to_a).to eq(Topic.all)
       end
 
-      it "returns only public specs if user is nil" do
-        expect(Topic.visible_to(false).count).to eq(Topic.where(:public => false).count)
+      it "returns only public topics if user is nil" do
+        expect(Topic.visible_to(false).to_a).to eq([@public_topic])
       end
     end
   end
