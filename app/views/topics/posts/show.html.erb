@@ -8,12 +8,17 @@
     </small>
     <p><%= @post.markdown_body %></p>
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
-    <%= render partial: 'comments/comment', collection: @post.comments %>
-    <% if policy(@comment).create? %>
-      <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
-    <% else %>
-      <small>You must sign in to comment on this post.</small>
-    <% end %>
+    <h2>Comments</h2>
+      <div class="js-comments">
+        <%= render partial: 'comments/comment', collection: @post.comments %>
+      </div>
+      <div class="new-comment">
+        <% if policy(@comment).create? %>
+          <%= render partial: 'comments/form', locals: { topic: @topic, post: @post, comment: @comment } %>
+        <% else %>
+          <small>You must sign in to comment on this post.</small>
+        <% end %>
+      </div>
   </div>
 </div>
 <div class="col-md-4">
