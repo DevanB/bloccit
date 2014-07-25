@@ -16,10 +16,8 @@ describe User do
     end
 
     it "returns the appropriate favorite if it exists" do
-      Favorite.create(post: @post, user: @user)
-      favorite = @user.favorited(@post)
-      expect(favorite.class).to eq(Favorite)
-      expect(favorite.user_id).to eq(@user.id)
+      favorite = Favorite.create(post: @post, user: @user)
+      expect(@user.favorited(@post)).to eq(favorite)
     end
   end  
 end

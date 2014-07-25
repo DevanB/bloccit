@@ -22,11 +22,11 @@ describe Topic do
 
     describe "visible_to(user)" do
       it "returns all topics if the user is present" do
-        expect(Topic.visible_to(true).to_a).to eq(Topic.all)
+        expect(Topic.visible_to(true)).to eq(Topic.all)
       end
 
       it "returns only public topics if user is nil" do
-        expect(Topic.visible_to(false).to_a).to eq([@public_topic])
+        expect(Topic.visible_to(false)).to eq([@public_topic])
       end
     end
   end
