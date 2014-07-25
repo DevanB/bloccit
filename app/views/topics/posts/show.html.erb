@@ -8,7 +8,7 @@
     </small>
     <p><%= @post.markdown_body %></p>
     <p><%= image_tag(@post.image.url) if @post.image? %></p>
-    <h2>Comments</h2>
+    <h2>Comments (<span class='js-comments-count'><%= pluralize(@post.comments.count, 'comment') %></span>)</h2>
       <div class="js-comments">
         <%= render partial: 'comments/comment', collection: @post.comments %>
       </div>
