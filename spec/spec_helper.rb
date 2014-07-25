@@ -75,4 +75,8 @@ RSpec.configure do |config|
     mocks.verify_partial_doubles = true
   end
 =end
+
+  config.before(:each) do
+    allow_any_instance_of(Post).to receive(:create_vote)
+  end
 end
