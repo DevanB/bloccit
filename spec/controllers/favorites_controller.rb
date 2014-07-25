@@ -1,13 +1,12 @@
 require 'rails_helper'
 
 describe FavoritesController do
-  include TestFactories
   include Devise::TestHelpers
 
   before do
     @topic = Topic.create
-    @post = post_without_user({topic: @topic})
-    @user = authenticated_user
+    @user = create(:user)
+    @post = create(:post, topic: @topic, user: @user)
     sign_in @user
   end
 
